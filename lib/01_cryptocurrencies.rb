@@ -32,7 +32,7 @@ end
 def value_max_inf_6k
   temp = $testhash.select {|k, v| v.to_f <= 6000}
   puts temp.max_by{|k,v| v.to_f}
-  puts "La dvise la plus chère parmi celles dont le cours est inférieur à 6000 est #{temp.max_by{|k,v| v.to_f}.first}"
+  puts "La devise la plus chère parmi celles dont le cours est inférieur à 6000 est #{temp.max_by{|k,v| v.to_f}.first}"
 end
 
 
