@@ -11,16 +11,14 @@ end
 
 # 1 - La ou les crypto qui ont la plus grosse valeur.
 def values_max
-puts "\nLa crypto avec la plus grosse valeur est"
+puts "\nLa crypto avec la plus grosse valeur est :"
 puts $testhash.max_by{|k,v| v.to_f}.first
 end
 
 # 2 - Extraire la ou les crypto qui ont la plus petite valeur.
 def values_min
-  puts "\nLa crypto avec la plus petite valeur est"
-  
+  puts "\nLes cryptos avec la plus petite valeur sont :"
   min_price =$testhash.min_by{|k,v| v.to_f}.last #prix min
-  # puts min_price.class
   puts $testhash.select {|k,v| v == min_price}.keys
 end
 
@@ -34,6 +32,7 @@ end
 def value_max_inf_6k
   temp = $testhash.select {|k, v| v.to_f <= 6000}
   puts temp.max_by{|k,v| v.to_f}
+  puts "La dvise la plus chère parmi celles dont le cours est inférieur à 6000 est #{temp.max_by{|k,v| v.to_f}.first}"
 end
 
 

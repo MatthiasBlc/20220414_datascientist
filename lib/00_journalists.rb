@@ -3,8 +3,8 @@ $list = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau","@ga
 
 # 1 -Combien y a-t-il de handle dans cette array ?
 def h_handle()
-  h_list = $list.length
-  puts h_list
+  puts $list.length
+  puts "Il y a #{$list.length} handle dans cette array."
 end
 
 
@@ -12,6 +12,7 @@ end
 def short_handle
   short_list = $list.min_by(&:length)
   puts short_list
+  puts "Le handle le plus court est #{short_list}"
 end
 
 
@@ -21,47 +22,42 @@ def car5_handle
   list_lenth = $list.length
   list_lenth.times{ |i| car5_list.push $list[i].size-1 }
   puts car5_list.count(5)
-  # journalists.count {|handle| handle.length == 6
+  puts "il y a  #{car5_list.count(5)} handle contenant 5 caractères."
+  # METHODE ALTERNATIVE// $list.count {|handle| handle.length == 6
 end
 
-# ///////////////////////////TO DOOOOOOOOOOOOOOOOOOOOOO///////////////////////
+
 # 4 - Combien commencent par une majuscule (première lettre juste après le @) ?
 def maj_handle
   puts $list.count {|handle| handle[1] =~/[[:upper:]]/}
+  puts "#{$list.count {|handle| handle[1] =~/[[:upper:]]/}} handle commencent par une majuscule."
 end
 
 
 # 5 - Trie la liste de handle par ordre alphabétique.
 def alpha_handle
   puts $list.sort_by{|handle| handle[1].downcase}
-  # padding = 4
-  # alpha_list = $list.sort{|a,b|
-  #   a,b = [a,b].map{|s| s.gsub(/\d+/){|m| "0"*(padding - m.size) + m } }
-  #   a<=>b
-  # }
-  # puts alpha_list
 end
 
 
 # 6 - Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
 def order_length_handle
-  # order_length_list = $list.sort_by {|x| x.length}
   order_length_list = $list.sort_by(&:length)
   puts order_length_list
+   # METHODE ALTERNATIVE//order_length_list = $list.sort_by {|x| x.length}
 end
 
 
 # 7 - Quelle est la position dans l'array de la personne @epenser ?
 def epenser_pose_handle
   puts $list.index('@epenser')
+  puts "@epenser est en position : #{$list.index('@epenser')}"
 end
 
 
 # 8 - Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 def repart_handle
-  ($list.max_by(&:length).size-1).times {|i| puts "#{i+1} dans #{$list.count {|handle| handle.size-1 == (i+1)}}"}
-  # journalists.select {|handle| handle.size == 1}
-  # into boucle dans taille max taille et min_by
+  ($list.max_by(&:length).size-1).times {|i| puts "Avec #{i+1} caractères, il a #{$list.count {|handle| handle.size-1 == (i+1)}} handle"}
 end
 
 
